@@ -1,0 +1,676 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+}
+
+
+body {
+
+    min-height: 100vh;
+
+    background: #0b1220;
+
+    color: #e5e7eb;
+
+    padding-bottom: 40px;
+}
+
+
+/* ==========================================
+   NAVBAR
+========================================== */
+
+.navbar {
+
+    width: 100%;
+
+    padding: 20px 6%;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    background: #111827;
+
+    border-bottom:
+        1px solid #1f2937;
+}
+
+
+.brand {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 13px;
+}
+
+
+.brand-icon {
+
+    width: 45px;
+    height: 45px;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 12px;
+
+    background: #06b6d4;
+
+    color: #07111f;
+
+    font-size: 21px;
+
+    font-weight: 900;
+}
+
+
+.brand h1 {
+
+    font-size: 19px;
+
+    color: white;
+}
+
+
+.brand p {
+
+    margin-top: 3px;
+
+    color: #64748b;
+
+    font-size: 12px;
+}
+
+
+/* ==========================================
+   SYSTEM STATUS
+========================================== */
+
+.system-status {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    padding:
+        8px 13px;
+
+    border-radius: 20px;
+
+    background: #172033;
+
+    color: #94a3b8;
+
+    font-size: 12px;
+
+    font-weight: bold;
+}
+
+
+#statusDot {
+
+    width: 8px;
+    height: 8px;
+
+    border-radius: 50%;
+
+    background: #64748b;
+}
+
+
+/* ==========================================
+   DASHBOARD
+========================================== */
+
+.dashboard {
+
+    width: 88%;
+
+    max-width: 1250px;
+
+    margin: 35px auto;
+}
+
+
+/* ==========================================
+   WELCOME
+========================================== */
+
+.welcome {
+
+    padding: 30px;
+
+    border-radius: 18px;
+
+    background: #111827;
+
+    border:
+        1px solid #1f2937;
+
+    margin-bottom: 20px;
+}
+
+
+.small-title {
+
+    color: #06b6d4;
+
+    font-size: 11px;
+
+    font-weight: bold;
+
+    letter-spacing: 1.5px;
+
+    margin-bottom: 7px;
+}
+
+
+.welcome h2 {
+
+    font-size: 30px;
+
+    color: white;
+
+    margin-bottom: 8px;
+}
+
+
+.welcome-text {
+
+    color: #64748b;
+
+    font-size: 14px;
+}
+
+
+/* ==========================================
+   CARDS
+========================================== */
+
+.cards {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 18px;
+
+    margin-bottom: 20px;
+}
+
+
+.info-card {
+
+    padding: 23px;
+
+    border-radius: 16px;
+
+    background: #111827;
+
+    border:
+        1px solid #1f2937;
+}
+
+
+.card-label {
+
+    color: #64748b;
+
+    font-size: 10px;
+
+    font-weight: bold;
+
+    letter-spacing: 1px;
+
+    margin-bottom: 12px;
+}
+
+
+.card-value {
+
+    color: white;
+
+    font-size: 30px;
+
+    font-weight: bold;
+}
+
+
+.sensor-value {
+
+    color: #22d3ee;
+
+    font-size: 30px;
+
+    font-weight: bold;
+}
+
+
+/* ==========================================
+   GENERAL PANEL
+========================================== */
+
+.panel {
+
+    background: #111827;
+
+    border:
+        1px solid #1f2937;
+
+    border-radius: 16px;
+
+    padding: 25px;
+
+    margin-bottom: 20px;
+}
+
+
+.panel h3 {
+
+    color: white;
+
+    font-size: 20px;
+}
+
+
+/* ==========================================
+   GRAPH
+========================================== */
+
+.graph-panel {
+
+    padding: 25px;
+}
+
+
+.logs-top {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    margin-bottom: 18px;
+}
+
+
+.live-label {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 7px;
+
+    color: #22d3ee;
+
+    font-size: 11px;
+
+    font-weight: bold;
+}
+
+
+.live-label span {
+
+    width: 7px;
+    height: 7px;
+
+    border-radius: 50%;
+
+    background: #22d3ee;
+}
+
+
+.chart-container {
+
+    position: relative;
+
+    width: 100%;
+
+    height: 430px;
+}
+
+
+/* ==========================================
+   DATE PANEL
+========================================== */
+
+.date-panel {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 20px;
+}
+
+
+.date-panel select {
+
+    min-width: 220px;
+}
+
+
+/* ==========================================
+   SELECT
+========================================== */
+
+select {
+
+    height: 44px;
+
+    padding:
+        0 14px;
+
+    border-radius: 9px;
+
+    border:
+        1px solid #334155;
+
+    background: #0b1220;
+
+    color: #e5e7eb;
+
+    font-size: 14px;
+
+    outline: none;
+
+    cursor: pointer;
+}
+
+
+select:focus {
+
+    border-color: #06b6d4;
+
+    box-shadow:
+        0 0 0 3px
+        rgba(6, 182, 212, 0.10);
+}
+
+
+/* ==========================================
+   HISTORY
+========================================== */
+
+.history-panel {
+
+    padding: 25px;
+}
+
+
+.history-controls {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    flex-wrap: wrap;
+
+    margin:
+        20px 0;
+}
+
+
+.history-controls label {
+
+    color: #94a3b8;
+
+    font-size: 13px;
+}
+
+
+#historyRecordCount {
+
+    color: #64748b;
+
+    font-size: 13px;
+}
+
+
+/* ==========================================
+   BUTTON
+========================================== */
+
+.cyan-button {
+
+    height: 42px;
+
+    padding:
+        0 20px;
+
+    border: none;
+
+    border-radius: 8px;
+
+    background: #06b6d4;
+
+    color: #07111f;
+
+    font-size: 13px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: .2s;
+}
+
+
+.cyan-button:hover {
+
+    background: #22d3ee;
+}
+
+
+.cyan-button:active {
+
+    transform: scale(.98);
+}
+
+
+/* ==========================================
+   TABLE
+========================================== */
+
+.table-container {
+
+    width: 100%;
+
+    overflow-x: auto;
+
+    border:
+        1px solid #1f2937;
+
+    border-radius: 10px;
+}
+
+
+table {
+
+    width: 100%;
+
+    border-collapse: collapse;
+
+    min-width: 650px;
+}
+
+
+thead {
+
+    background: #172033;
+}
+
+
+th {
+
+    padding: 14px;
+
+    color: #94a3b8;
+
+    font-size: 11px;
+
+    text-align: center;
+
+    letter-spacing: .5px;
+}
+
+
+td {
+
+    padding: 14px;
+
+    color: #cbd5e1;
+
+    font-size: 13px;
+
+    text-align: center;
+
+    border-top:
+        1px solid #1f2937;
+}
+
+
+tbody tr:hover {
+
+    background: #151f31;
+}
+
+
+.empty {
+
+    padding: 30px;
+
+    color: #64748b;
+}
+
+
+/* ==========================================
+   HIDDEN
+========================================== */
+
+.hidden {
+
+    display: none;
+}
+
+
+/* ==========================================
+   FOOTER
+========================================== */
+
+footer {
+
+    text-align: center;
+
+    color: #475569;
+
+    font-size: 12px;
+}
+
+
+/* ==========================================
+   MOBILE
+========================================== */
+
+@media(max-width: 800px) {
+
+    .dashboard {
+
+        width: 92%;
+    }
+
+
+    .navbar {
+
+        padding:
+            17px 4%;
+    }
+
+
+    .cards {
+
+        grid-template-columns: 1fr;
+    }
+
+
+    .welcome h2 {
+
+        font-size: 24px;
+    }
+
+
+    .chart-container {
+
+        height: 350px;
+    }
+
+
+    .date-panel {
+
+        align-items:
+            flex-start;
+
+        flex-direction: column;
+    }
+
+
+    .date-panel select {
+
+        width: 100%;
+    }
+
+
+    .logs-top {
+
+        align-items:
+            flex-start;
+
+        gap: 15px;
+
+        flex-direction: column;
+    }
+
+
+    .history-controls {
+
+        align-items:
+            flex-start;
+
+        flex-direction: column;
+    }
+
+
+    .history-controls select {
+
+        width: 100%;
+    }
+
+
+    .sensor-value {
+
+        font-size: 28px;
+    }
+
+}

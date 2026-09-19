@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>ESP32 WiFi Manager</title>
+
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+
+        body {
+
+            min-height: 100vh;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            padding: 20px;
+
+            font-family:
+                Arial,
+                Helvetica,
+                sans-serif;
+
+            background: #0b1220;
+
+            color: #ffffff;
+        }
+
+
+        .container {
+
+            width: 100%;
+
+            max-width: 450px;
+
+            background: #111827;
+
+            border:
+                1px solid #1f2937;
+
+            border-radius: 18px;
+
+            padding: 30px;
+
+            box-shadow:
+                0 20px 50px
+                rgba(0, 0, 0, 0.35);
+        }
+
+
+        .logo {
+
+            width: 60px;
+
+            height: 60px;
+
+            margin:
+                0 auto 18px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            border-radius: 16px;
+
+            background: #06b6d4;
+
+            color: #07111f;
+
+            font-size: 28px;
+
+            font-weight: bold;
+        }
+
+
+        h1 {
+
+            text-align: center;
+
+            font-size: 25px;
+
+            margin-bottom: 8px;
+        }
+
+
+        .subtitle {
+
+            text-align: center;
+
+            color: #9ca3af;
+
+            font-size: 14px;
+
+            margin-bottom: 28px;
+        }
+
+
+        .group {
+
+            margin-bottom: 18px;
+        }
+
+
+        label {
+
+            display: block;
+
+            margin-bottom: 8px;
+
+            color: #d1d5db;
+
+            font-size: 14px;
+
+            font-weight: 600;
+        }
+
+
+        input {
+
+            width: 100%;
+
+            padding:
+                13px 14px;
+
+            border-radius: 10px;
+
+            border:
+                1px solid #374151;
+
+            background: #0b1220;
+
+            color: #ffffff;
+
+            font-size: 15px;
+
+            outline: none;
+
+            transition: 0.2s;
+        }
+
+
+        input:focus {
+
+            border-color: #06b6d4;
+
+            box-shadow:
+                0 0 0 3px
+                rgba(
+                    6,
+                    182,
+                    212,
+                    0.12
+                );
+        }
+
+
+        input::placeholder {
+
+            color: #6b7280;
+        }
+
+
+        .info {
+
+            margin-top: 5px;
+
+            color: #6b7280;
+
+            font-size: 12px;
+
+            line-height: 1.5;
+        }
+
+
+        button {
+
+            width: 100%;
+
+            margin-top: 8px;
+
+            padding: 14px;
+
+            border: none;
+
+            border-radius: 10px;
+
+            background: #06b6d4;
+
+            color: #07111f;
+
+            font-size: 15px;
+
+            font-weight: bold;
+
+            cursor: pointer;
+
+            transition: 0.2s;
+        }
+
+
+        button:hover {
+
+            background: #22d3ee;
+        }
+
+
+        button:active {
+
+            transform: scale(0.98);
+        }
+
+
+        .warning {
+
+            margin-top: 20px;
+
+            padding: 13px;
+
+            border-radius: 10px;
+
+            background:
+                rgba(
+                    245,
+                    158,
+                    11,
+                    0.10
+                );
+
+            border:
+                1px solid
+                rgba(
+                    245,
+                    158,
+                    11,
+                    0.25
+                );
+
+            color: #fbbf24;
+
+            font-size: 12px;
+
+            line-height: 1.5;
+
+            text-align: center;
+        }
+
+
+        .footer {
+
+            margin-top: 22px;
+
+            text-align: center;
+
+            color: #6b7280;
+
+            font-size: 12px;
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <div class="container">
+
+
+        <div class="logo">
+            W
+        </div>
+
+
+        <h1>
+            ESP32 WiFi Manager
+        </h1>
+
+
+        <p class="subtitle">
+            Configure your ESP32 network connection
+        </p>
+
+
+        <form
+            method="POST"
+            action="/"
+        >
+
+
+            <div class="group">
+
+                <label for="ssid">
+                    WiFi SSID
+                </label>
+
+                <input
+                    type="text"
+                    id="ssid"
+                    name="ssid"
+                    placeholder="Enter WiFi name"
+                    required
+                    autocomplete="off"
+                >
+
+            </div>
+
+
+            <div class="group">
+
+                <label for="pass">
+                    WiFi Password
+                </label>
+
+                <input
+                    type="password"
+                    id="pass"
+                    name="pass"
+                    placeholder="Enter WiFi password"
+                    required
+                    autocomplete="off"
+                >
+
+            </div>
+
+
+            <div class="group">
+
+                <label for="ip">
+                    IP Address
+                </label>
+
+                <input
+                    type="text"
+                    id="ip"
+                    name="ip"
+                    placeholder="Optional"
+                    autocomplete="off"
+                >
+
+                <div class="info">
+
+                    Leave blank if you want the ESP32
+                    to use DHCP.
+
+                </div>
+
+            </div>
+
+
+            <div class="group">
+
+                <label for="gateway">
+                    Gateway
+                </label>
+
+                <input
+                    type="text"
+                    id="gateway"
+                    name="gateway"
+                    placeholder="Optional"
+                    autocomplete="off"
+                >
+
+                <div class="info">
+
+                    Example:
+                    192.168.1.1
+
+                </div>
+
+            </div>
+
+
+            <button
+                type="submit"
+            >
+                Save WiFi Settings
+            </button>
+
+
+        </form>
+
+
+        <div class="warning">
+
+            After saving, the ESP32 will
+            automatically restart and connect
+            to the new WiFi network.
+
+        </div>
+
+
+        <div class="footer">
+
+            Arvie ESP32 Activity 4
+
+        </div>
+
+
+    </div>
+
+
+</body>
+
+</html>
