@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Arvie - DHT11 Monitoring</title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================================
+         NAVBAR
+    ========================================== -->
+
+    <header class="navbar">
+
+        <div class="brand">
+
+            <div class="brand-icon">
+                A
+            </div>
+
+            <div>
+
+                <h1>
+                    Arvie Monitor
+                </h1>
+
+                <p>
+                    DHT11 Environment Monitor
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="system-status">
+
+            <span id="statusDot"></span>
+
+            <span id="statusText">
+                CONNECTING
+            </span>
+
+        </div>
+
+    </header>
+
+
+
+    <main class="dashboard">
+
+
+        <!-- =========================================
+             WELCOME
+        ========================================== -->
+
+        <section class="welcome">
+
+            <p class="small-title">
+                REALTIME MONITORING
+            </p>
+
+            <h2>
+                Temperature & Humidity Dashboard
+            </h2>
+
+            <p class="welcome-text">
+                ESP32 DHT11 sensor data from Firebase Realtime Database
+            </p>
+
+        </section>
+
+
+
+        <!-- =========================================
+             CURRENT VALUES
+        ========================================== -->
+
+        <section class="cards">
+
+
+            <div class="info-card">
+
+                <div class="card-label">
+                    CURRENT TEMPERATURE
+                </div>
+
+                <div
+                    class="sensor-value"
+                    id="currentTemperature"
+                >
+                    -- °C
+                </div>
+
+            </div>
+
+
+
+            <div class="info-card">
+
+                <div class="card-label">
+                    CURRENT HUMIDITY
+                </div>
+
+                <div
+                    class="sensor-value"
+                    id="currentHumidity"
+                >
+                    -- %
+                </div>
+
+            </div>
+
+
+
+            <div class="info-card">
+
+                <div class="card-label">
+                    TOTAL RECORDS
+                </div>
+
+                <div
+                    class="card-value"
+                    id="recordCount"
+                >
+                    0
+                </div>
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- =========================================
+             GRAPH
+        ========================================== -->
+
+        <section class="panel graph-panel">
+
+
+            <div class="logs-top">
+
+                <div>
+
+                    <p class="small-title">
+                        SENSOR GRAPH
+                    </p>
+
+                    <h3>
+                        Temperature & Humidity
+                    </h3>
+
+                </div>
+
+
+                <div class="live-label">
+
+                    <span></span>
+
+                    LIVE DATA
+
+                </div>
+
+            </div>
+
+
+            <div class="chart-container">
+
+                <canvas id="sensorChart"></canvas>
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- =========================================
+             DATA FILTER
+             ONLY DATE SELECTOR
+        ========================================== -->
+
+        <section class="panel date-panel">
+
+            <div>
+
+                <p class="small-title">
+                    DATA FILTER
+                </p>
+
+                <h3>
+                    Select Date
+                </h3>
+
+            </div>
+
+
+            <select id="graphDate">
+
+                <option value="">
+                    Select Date
+                </option>
+
+            </select>
+
+
+        </section>
+
+
+
+        <!-- =========================================
+             HISTORY
+        ========================================== -->
+
+        <section class="panel history-panel">
+
+
+            <div class="logs-top">
+
+                <div>
+
+                    <p class="small-title">
+                        SENSOR HISTORY
+                    </p>
+
+                    <h3>
+                        Previous Readings
+                    </h3>
+
+                </div>
+
+
+                <button
+                    id="toggleHistory"
+                    class="cyan-button"
+                >
+                    Show History
+                </button>
+
+            </div>
+
+
+
+            <div
+                id="historyContent"
+                class="hidden"
+            >
+
+
+                <div class="history-controls">
+
+                    <span id="historyRecordCount">
+                        0 records
+                    </span>
+
+                </div>
+
+
+
+                <div class="table-container">
+
+                    <table>
+
+                        <thead>
+
+                            <tr>
+
+                                <th>
+                                    Time
+                                </th>
+
+                                <th>
+                                    Temperature
+                                </th>
+
+                                <th>
+                                    Humidity
+                                </th>
+
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody id="historyTableBody">
+
+                            <tr>
+
+                                <td
+                                    colspan="3"
+                                    class="empty"
+                                >
+                                    Waiting for Firebase data...
+                                </td>
+
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+
+            </div>
+
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- =========================================
+         FOOTER
+    ========================================== -->
+
+    <footer>
+
+        Arvie ESP32 DHT11 Activity 4 Monitoring System
+
+    </footer>
+
+
+
+    <!-- =========================================
+         CHART.JS
+    ========================================== -->
+
+    <script
+        src="https://cdn.jsdelivr.net/npm/chart.js"
+    ></script>
+
+
+    <!-- =========================================
+         FIREBASE SCRIPT
+    ========================================== -->
+
+    <script
+        type="module"
+        src="app.js"
+    ></script>
+
+
+</body>
+
+</html>
